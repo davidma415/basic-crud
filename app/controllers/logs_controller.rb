@@ -15,7 +15,7 @@ class LogsController < ApplicationController
       redirect_to logs_url
     else
       flash[:notice] = "Failed to create a clock event"
-      render :index
+      redirect_to logs_url
     end
   end
 end
