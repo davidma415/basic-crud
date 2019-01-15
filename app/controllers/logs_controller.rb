@@ -14,7 +14,7 @@ class LogsController < ApplicationController
       flash[:notice] = "You have clocked #{@log.event_type}"
       redirect_to logs_url
     else
-      flash[:notice] = "Failed to create a clock event"
+      flash[:notice] = "Failed to create a clock event -  #{@log.errors.full_messages[0]}."
       redirect_to logs_url
     end
   end
