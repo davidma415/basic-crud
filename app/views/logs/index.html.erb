@@ -1,0 +1,26 @@
+<body>
+  <header>
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  </header>
+
+  <main>
+    <h1>Clock In App</h1>
+
+    <%= render 'form', log: @log %>
+
+    <div>
+      <h1>All Logs</h1>
+      <% if @logs.length != 0 %>
+        <% @logs.each do |log| %>
+          <p><%= log.name %> clocked <%= log.event_type %> at <%= log.created_at %> </p>
+        <% end %>
+      <% else %>
+        <p>There are currently no clock in/out events.</p>
+      <% end %>
+
+    </div>
+  </main>
+
+</body>

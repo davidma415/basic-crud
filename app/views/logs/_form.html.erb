@@ -1,0 +1,29 @@
+<% if log.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(log.errors.count, "error") %> prohibited this clock event from being saved:</h2>
+     <ul>
+      <% @log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(log) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.select(:event_type) do %>
+      <% [['Clock In', 'in'], ['Clock Out', 'out']].each do |c| -%>
+        <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit Clock Event" %>
+  </p>
+<% end%>

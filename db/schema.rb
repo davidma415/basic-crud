@@ -14,8 +14,9 @@ ActiveRecord::Schema.define(version: 2019_01_15_041742) do
 
   create_table "logs", force: :cascade do |t|
     t.string "name"
-    t.string "type"
-    t.datetime "time"
+    t.string "event_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
